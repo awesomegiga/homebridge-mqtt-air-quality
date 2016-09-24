@@ -36,8 +36,13 @@ function AirQualityAccessory(log, config) {
   };
 
   var PM_size_value =-1;
+  var Air_quality_idx = 0;
 
   this.service = new Service.AirQualitySensor(this.name);
+  this.service
+  .getCharacteristic(Characteristic.AirQuality)
+  .on('get', this.getAirQuality.bind(this));
+
   this.service
   .getCharacteristic(Characteristic.AirParticulateSize)
   .on('get', this.getPMsize.bind(this))
@@ -66,6 +71,28 @@ AirQualityAccessory.prototype.getPMsize = function(callback) {
 AirQualityAccessory.prototype.getPMdensity = function(callback) {
   this.log(this.name, " - MQTT : PM = ", this.PM);
   callback(null, this.PM);
+}
+
+AirQualityAccessory.prototype.getAirQuality = function(callback) {
+  if (this.PM_size == "PM2_5")
+  {
+    if (this.PM > 0 & this.PM <= 30) {this.Air_quality_idx = 1;}
+    else if (this.PM <= 60) {this.Air_quality_idx = 2;}
+    else if (this.PM <= 90) {this.Air_quality_idx = 3;}
+    else if (this.PM <= 120) {this.Air_quality_idx = 4;}
+    else if (this.PM <= 250) {this.Air_quality_idx = 5;}
+    else {this.Air_quality_idx = 6;}
+  }
+  if (this.PM_size == "PM10")
+  {
+    if (this.PM > 0 & this.PM <= 50) {this.Air_quality_idx = 1;}
+    else if (this.PM <= 100) {this.Air_quality_idx = 2;}
+    else if (this.PM <= 250) {this.Air_quality_idx = 3;}
+    else if (this.PM <= 350) {this.Air_quality_idx = 4;}
+    else if (this.PM <= 430) {this.Air_quality_idx = 5;}
+    else {this.Air_quality_idx = 6;}
+  }
+  callback(null, this.Air_quality_idx);
 }
 
 AirQualityAccessory.prototype.getServices = function() {
