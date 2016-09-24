@@ -1,27 +1,11 @@
-{
-    "bridge": {
-        "name": "Homebridge",
-        "username": "CC:22:3D:E3:CE:30",
-        "port": 51826,
-        "pin": "031-45-154"
-    },
-
-    "description": "This is an example configuration file. You can use this as a template for creating your own configuration file.",
-
-    "platforms": [
-    ],
-    "accessories": [
-        {
-                "accessory": "mqttswitch",
-            "name": "PUT THE NAME OF YOUR SWITCH HERE",
-            "url": "PUT URL OF THE BROKER HERE",
-                        "username": "PUT USERNAME OF THE BROKER HERE",
-                        "password": "PUT PASSWORD OF THE BROKER HERE",
-                        "caption": "PUT THE LABEL OF YOUR SWITCH HERE",
-                        "topics": {
-                                "statusGet":    "PUT THE MQTT TOPIC FOR THE GETTING THE STATUS OF YOUR SWITCH HERE",
-                                "statusSet":    "PUT THE MQTT TOPIC FOR THE SETTING THE STATUS OF YOUR SWITCH HERE"
-                        }
-        }
-    ]
-}
+"accessories": [
+  {
+    "accessory": "mqtt-air-quality",
+    "name": "Living Room air quality",
+    "url": "mqtt://localhost",
+    "topic": "home-livingroom-air-quality",
+    "username": "username",
+    "password": "password",
+    "PM_size": "PM2_5" 
+  }
+  ]
