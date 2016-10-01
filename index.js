@@ -76,20 +76,20 @@ AirQualityAccessory.prototype.getPMdensity = function(callback) {
 AirQualityAccessory.prototype.getAirQuality = function(callback) {
   if (this.PM_size == "PM2_5")
   {
-    if (this.PM > 0 & this.PM <= 30) {this.Air_quality_idx = 1;}
-    else if (this.PM <= 60) {this.Air_quality_idx = 2;}
-    else if (this.PM <= 90) {this.Air_quality_idx = 3;}
-    else if (this.PM <= 120) {this.Air_quality_idx = 4;}
+    if (this.PM > 0 & this.PM <= 12) {this.Air_quality_idx = 1;}
+    else if (this.PM <= 35) {this.Air_quality_idx = 2;}
+    else if (this.PM <= 55) {this.Air_quality_idx = 3;}
+    else if (this.PM <= 150) {this.Air_quality_idx = 4;}
     else if (this.PM <= 250) {this.Air_quality_idx = 5;}
     else {this.Air_quality_idx = 6;}
   }
   if (this.PM_size == "PM10")
   {
-    if (this.PM > 0 & this.PM <= 50) {this.Air_quality_idx = 1;}
-    else if (this.PM <= 100) {this.Air_quality_idx = 2;}
-    else if (this.PM <= 250) {this.Air_quality_idx = 3;}
-    else if (this.PM <= 350) {this.Air_quality_idx = 4;}
-    else if (this.PM <= 430) {this.Air_quality_idx = 5;}
+    if (this.PM > 0 & this.PM <= 54) {this.Air_quality_idx = 1;}
+    else if (this.PM <= 154) {this.Air_quality_idx = 2;}
+    else if (this.PM <= 254) {this.Air_quality_idx = 3;}
+    else if (this.PM <= 354) {this.Air_quality_idx = 4;}
+    else if (this.PM <= 424) {this.Air_quality_idx = 5;}
     else {this.Air_quality_idx = 6;}
   }
   callback(null, this.Air_quality_idx);
