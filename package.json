@@ -1,7 +1,7 @@
 
 {
   "name": "homebridge-mqtt-air-quality",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Sample Platform plugin for homebridge: https://github.com/nfarina/homebridge",
   "license": "ISC",
   "keywords": [

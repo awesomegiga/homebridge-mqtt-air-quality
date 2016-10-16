@@ -80,8 +80,8 @@ AirQualityAccessory.prototype.getAirQuality = function(callback) {
     else if (this.PM <= 35) {this.Air_quality_idx = 2;}
     else if (this.PM <= 55) {this.Air_quality_idx = 3;}
     else if (this.PM <= 150) {this.Air_quality_idx = 4;}
-    else if (this.PM <= 250) {this.Air_quality_idx = 5;}
-    else {this.Air_quality_idx = 6;}
+    else  {this.Air_quality_idx = 5;}
+    // else if (this.PM <= 424) {this.Air_quality_idx = 5;}
   }
   if (this.PM_size == "PM10")
   {
@@ -89,8 +89,8 @@ AirQualityAccessory.prototype.getAirQuality = function(callback) {
     else if (this.PM <= 154) {this.Air_quality_idx = 2;}
     else if (this.PM <= 254) {this.Air_quality_idx = 3;}
     else if (this.PM <= 354) {this.Air_quality_idx = 4;}
-    else if (this.PM <= 424) {this.Air_quality_idx = 5;}
-    else {this.Air_quality_idx = 6;}
+    else  {this.Air_quality_idx = 5;}
+    // else if (this.PM <= 424) {this.Air_quality_idx = 5;}
   }
   callback(null, this.Air_quality_idx);
 }
